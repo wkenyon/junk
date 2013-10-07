@@ -1,0 +1,24 @@
+el1 = 1;
+el2 = 2;
+el3 = 3;
+el4 = 4;
+el5 = 5;
+el6 = 6;
+
+l1 = Nil;
+l2 = Cons el1 l1;
+l3 = Cons el2 l2;
+l4 = Cons el3 l3;
+
+l'1 = Nil;
+l'2 = Cons el4 l'1;
+l'3 = Cons el5 l'2;
+l'4 = Cons el6 l'3;
+
+append = \xs.\ys.case xs
+  {
+   Nil . ys,
+   Cons x xss . Cons x ((append xss) ys)
+  };
+
+main = \s . append l4 l'4;
